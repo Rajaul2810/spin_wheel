@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spin Wheel</title>
+    <!-- tailwindcss cdn link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 dark:bg-gray-900">
+    <!-- nav section start -->
+    <nav>
+      <div class="flex justify-between p-5 shadow-sm bg-neutral-50">
+        <p class="text-lg font-bold">Spin</p>
+        <p class="text-lg font-bold">Wheel</p>
+        
+      </div>
+    </nav>
+    <!-- nav section end -->
+
+    <!--  main section start -->
+    <section class="relative">
+      <div class="flex justify-center py-5 items-center">
+        <div
+          class="w-11/12 grid grid-cols-1 md:grid-cols-3 gap-3 place-items-center"
+        >
+          <div>
+            <h1>WINNER</h1>
+            <p id="winner">None</p>
+          </div>
+          <div>
+            <!-- wheel section -->
+            <div class="flex justify-center relative">
+              <canvas class="" id="canvas" width="500" height="500"></canvas>
+  
+              
+              <div
+                class="w-24 h-24 bg-white rounded-full absolute"
+                style="top: 50%; transform: translateY(-50%)"
+                
+              >
+                <div
+                  class="triangle"
+                  style="
+                    width: 0;
+                    height: 0;
+                    border-top: 10px solid transparent;
+                    border-bottom: 10px solid transparent;
+                    border-right: 30px solid red;
+                    position: absolute;
+                    top: 50%;
+                    right: -220%;
+                    transform: translateY(-50%);
+                  "
+                ></div>
+                
+              </div>
+            </div>
+            <div class="flex justify-center my-5">
+              <button onclick="spin()" class=" bg-blue-500 px-10  rounded-lg py-5 text-white">Spin it!</button>
+            </div>
+          </div>
+
+          <!-- input section -->
+          <div class="inputArea" onchange="createWheel()">
+            <textarea class=" border text-black text-left" rows="10" cols="30">
+            Rahim
+            Karim
+            Rafi
+            Hira
+            Pranto
+            </textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal section -->
+      <div
+        class=" fixed inset-0 flex justify-center items-center invisible bg-black/10 backdrop-blur-sm z-[100]" id="modal"
+      >
+        <div class="text-absolute max-w-md w-72 rounded-lg bg-white p-6 drop-shadow-lg">
+          <p id="winner1">None</p><br>
+          <button  onclick="handleModal()" class="bg-green-400 px-3 py-2 rounded-lg">ok</button>
+        </div>
+      </div>
+    </section>
+
+    <!--  main section end -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
